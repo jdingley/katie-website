@@ -1,0 +1,100 @@
+@media print{
+  
+  html {
+    margin: 0px;
+    padding: 0px;
+    height: 99%;
+  }
+  body{
+    font-family: Arial;
+    font-size: .8em; 
+    height: 99%;
+  }
+  table { 
+    page-break-inside:auto 
+  }
+  tr {
+    page-break-inside:avoid; page-break-after:auto 
+  }
+
+  #content {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    height: 99%;
+    min-height: 500px;
+  }
+
+  #content-container {
+    top: 0px;
+  }
+  
+  #content-header {
+    top: 0px;
+  }
+
+  #wrapper, .noprint {
+    top: 0px;
+    left: -20px;
+  }  
+  
+  #back-to-top, .noprint {
+    display: none;
+  }  
+
+  #sidebar, .noprint {
+    display: none;
+  }
+
+  #sidebar-wrapper, .noprint {
+    display: none; 
+  }
+
+  #header, #footer, .noprint {
+    display: none;
+  }
+
+  .dashboard {
+   margin-top: 0px;
+  }
+
+  .search_results {
+   margin-top: 5px !important;
+  }
+
+  .onlyprint {
+    display: block;
+  }
+
+  div.spacer {
+    clear: both;
+    display: block;
+    height: 0px;
+    visibility: hidden;
+    width: 0px;
+  }
+
+  .dashboard_container {
+    float: none;
+  }
+  .col-print-1 {width:8%;  float:left;}
+  .col-print-2 {width:16%; float:left;}
+  .col-print-3 {width:25%; float:left;}
+  .col-print-4 {width:33%; float:left;}
+  .col-print-5 {width:42%; float:left;}
+  .col-print-6 {width:50%; float:left;}
+  .col-print-7 {width:58%; float:left;}
+  .col-print-8 {width:66%; float:left;}
+  .col-print-9 {width:75%; float:left;}
+  .col-print-10{width:83%; float:left;}
+  .col-print-11{width:92%; float:left;}
+  .col-print-12{width:100%; float:left;}
+  
+  .print-clean {
+      border: none;
+      background: transparent;
+  }
+
+}

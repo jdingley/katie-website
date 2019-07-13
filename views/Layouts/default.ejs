@@ -1,0 +1,127 @@
+<head>
+	<title><%= title %> | Uplifting Counseling Services, LCC</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="">
+	<meta name="google-site-verification" content="1eKRzkm6tEPgn7J9S6EoS9si1qyuszYoBjSNz6J7Wck" />
+	<meta name="author" content="" />
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata">
+
+	<!--<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />-->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="/css/app.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+	<link rel="stylesheet" href="/js/plugins/datepicker/datepicker.css" type="text/css" />
+	<link rel="stylesheet" href="/js/plugins/DataTables-1.10.7/media/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="/js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css" type="text/css" />
+	<link rel="stylesheet" href="/js/plugins/magnific/magnific-popup.css" type="text/css" />
+	<link rel="shortcut icon" href="/images/SMARTfavicon.ico">
+	<link rel="icon" sizes="192x192" href="/images/sc_favicon_120x120.png">
+	<link rel="apple-touch-icon" href="/images/sc_favicon_76x76.png">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script src="/js/moment.js"></script>
+	<!-- Include socket.io -->
+	<script src="/js/socket.io.js"></script>
+</head>
+<style>
+	#header {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.nav.navbar-nav.navbar-nav li a {
+    	color: #52028E;
+	}
+	a {
+		color: #F1B419;
+	}
+	.nav.navbar-nav.navbar-nav>.active>a {
+    	background-color: #F0E90F;
+	}
+	body {
+		background-color: F1E0DD;
+	}
+	
+	.portlet .portlet-content {
+		border: 1px solid #F1E0DD;
+	}
+</style>
+<header cstyle="background-color: yellow; border-bottom: 2px solid #0066d2; border-top: 2px solid #0066d2;" class="header fixed clearfix">
+	<div id="header" class="header fixed clearfix" style="background:#52028E; height: auto;">
+		<div class="col-sm-4" id="sitelogo">
+			<div class="textwidget custom-html-widget">
+				<div id="logo">
+					<a href="/"><img src="/images/uplifitng_logo.png" height= 200 width=400 class="top1"></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3" id="headercenter">
+			<span id="text-2" class="widget headerwidget widget_text">			
+			<div class="textwidget"></div>
+			</span>
+		</div>
+		<div style="float: right; margin-right: 100px;">
+			<div class="textwidget custom-html-widget">
+				<p><button type="button" class="btn btn-info" onclick="window.location.href = 'Contact';">Contact Now</button>
+				<button type="button" class="btn btn-info" onclick="window.location.href = 'Appointment';">Schedule Appointmennt</button></p>
+				<p style="margin-left: 10px; color: #FFFFFF;" class="bottom1">Address
+				<br>
+				<a href="mailto:kadiatutarawalie2000@gmail.com"><i class="fa fa-envelope"></i> kadiatutarawalie2000@gmail.com</a> |
+				<a href="tel:(732) 322-2608"><i class="fa fa-phone"></i> (732) 322-2608</a></p>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-default" style="background: #F1B419;">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+			<a style= "color: #F1B419" class="navbar-brand">Uplifting Counseling Services, LCC</a>
+		  </div>
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="/">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Intake Forms and Consents</a></li>
+			<li><a href="#">Make a Payment</a></li>
+			<li><a href="#">Contact Me</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Schedule</a></li>
+		  </ul>
+		</div>
+	  </nav>
+	<br>
+</header>
+<body>
+<%- body -%>
+<div class="footer-wrapper"> <!-- footer wrapper -->
+	<hr>
+	<div class="col-md-8 col-md-offset-2">
+		<footer>
+			<h3 style="display: inline;">Useful Links</h3>
+			<h3 style="margin-right: 220px; float: right;">Contact</h3><br><hr>
+			<ul style="list-style-type: none; float: left; padding: 0px;">
+				<li><a href=""><i class="fa fa-home"></i> Home</a></li>
+				<li><a href=""><i class="fa fa-info-circle"></i> About</a></li>
+				<li><a href=""><i class="fa fa-address-book"></i>  Contact</a></li>
+				<li><a href=""><i class="fa fa-rss-square"></i> Blog</a></li>
+			</ul>
+			<div style="float: right; padding: 10px; height: auto; width: auto">
+				<ul style="float:right; margin-right: 75px; list-style-type: none;">
+					<li><a href=""><i class="fa fa-phone"></i> (732) 322-2608</li></a>
+					<li><a href=""><i class="fa fa-envelope"></i> kadiatutarawalie2000@gmail.com</li></a>
+					<li><a href=""><i class="fa fa-calendar"></i> Schedule</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div> <!-- /container -->
+</div>
+<div class="footer-wrapper"> <!-- footer wrapper -->
+	<div class="col-md-8 col-md-offset-2">
+		<footer>
+			<hr>
+			<span class="text-muted" style="text-align:center; float: right; position: relative; left: -35%;">Uplifting Counseling Services, LCC, Kadiatu Tarawalie, MA, LPC, NCC</span>
+		</footer>
+	</div> <!-- /container -->
+</div>
+</body>
