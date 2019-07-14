@@ -47,8 +47,8 @@
 </style>
 	<div id="header-wrapper" class="header-wrapper" style="background:#A1DAF7; height: auto; display: flex">
     <header class="col-md-12" style="background:#A1DAF7; height: auto; display: flex; text-align:center;">
-      <a  href="/"><img src="/images/uplifitng_logo.png" height= 150 width=300 style="margin-left: 50px; margin-top: 10px;"></a>	
-        <br><h2 style="font-family: Snell Roundhand, cursive; margin-left: auto; margin-right: auto; margin-top: 20px">"Out of suffering have emerged 
+      <a  href="/"><img src="/images/uplifitng_logo.png" height= 150 width=300 style="margin-left: 50px; margin-top: 10px;  margin-bottom: 10px"></a>	
+        <br><h2 style="font-family: Snell Roundhand, cursive; margin-left: auto; margin-right: auto; margin-top: 20px;">"Out of suffering have emerged 
           the strongest soul; <br>the most massive characters are seared with scars" <br>- Khalil Gibran</h2>
         <div class="textwidget custom-html-widget" style= "text-align: left; margin-right: 50px; float: right">
          <br> <p style="display: flex"><button style ="margin-right: 10px;" type="button" class="btn btn-info" onclick="window.location.href = 'Contact';">Contact Now</button>
@@ -66,15 +66,15 @@
     <div class="navbar-header">
     <a style= "color: #ff99ff" class="navbar-brand">Uplifting Counseling Services, LCC</a>
     </div>
-    <ul class="nav navbar-nav">
+    <ul  id="menu" class="nav navbar-nav">
     <li class="active"><a href="/">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Intake Forms and Consents</a></li>
-    <li><a href="#">Make a Payment</a></li>
-    <li><a href="#">Contact Me</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Schedule</a></li>
+    <li><a href="/About">About</a></li>
+    <li><a href="/Services">Services</a></li>
+    <li><a href="/PaymentForms">Intake Forms and Consents</a></li>
+    <li><a href="/MakePayements">Make a Payment</a></li>
+    <li><a href="/Contact">Contact Me</a></li>
+    <li><a href="/Blog">Blog</a></li>
+    <li><a href="/Schedule">Schedule</a></li>
     </ul>
   </div>
   </nav>
@@ -109,3 +109,9 @@
   </body>
   <script src="/js/plugins/jquery.validate.js"></script>
   <script src="/js/plugins/additional_methods.js"></script>
+  <script>
+    $('#menu li a').on('click', function(){
+      $('#menu li a.active').removeClass('active');
+      $(this).addClass('active');
+    });
+  </script>
