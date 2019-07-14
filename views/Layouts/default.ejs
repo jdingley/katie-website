@@ -67,10 +67,10 @@
     <a style= "color: #ff99ff" class="navbar-brand">Uplifting Counseling Services, LCC</a>
     </div>
     <ul  id="menu" class="nav navbar-nav">
-    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="/About">About</a></li>
     <li><a href="/Services">Services</a></li>
-    <li><a href="/PaymentForms">Intake Forms and Consents</a></li>
+    <li><a href="/ConsentForms">Intake Forms and Consents</a></li>
     <li><a href="/MakePayements">Make a Payment</a></li>
     <li><a href="/Contact">Contact Me</a></li>
     <li><a href="/Blog">Blog</a></li>
@@ -110,8 +110,11 @@
   <script src="/js/plugins/jquery.validate.js"></script>
   <script src="/js/plugins/additional_methods.js"></script>
   <script>
-    $('#menu li a').on('click', function(){
-      $('#menu li a.active').removeClass('active');
-      $(this).addClass('active');
+$(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active'); $(this).parents('li').addClass('active');
+            }
+        });
     });
   </script>

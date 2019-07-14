@@ -10,6 +10,10 @@ var server = http.createServer(app);
 server.listen(3000);
 
 var homeRouter = require('./routes/home');
+var aboutRouter = require('./routes/about');
+var servicesRouter = require('./routes/services');
+var contactRouter = require('./routes/contact');
+var blogRouter = require('./routes/blog');
 
 // view engine setup
 var engine = require('ejs-mate');
@@ -24,6 +28,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', homeRouter);
+app.use('/', aboutRouter);
+app.use('/', servicesRouter);
+app.use('/', contactRouter);
+app.use('/', blogRouter);
 
 app.use(function(req, res, next) {
   res.status(400).render('Error/denied_access', {
