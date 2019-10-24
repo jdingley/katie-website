@@ -11,17 +11,17 @@ exports.RenderServicesPage = function(req, res, next) {
     res.render('Services/AOF/areas_of_focus', { title: "Areas of Focus" });
   }
   exports.RenderPreteens = function(req, res, next) {
-    res.render('Services/AOF/preteen', { title: "Areas of Focus" });
+    res.render('Services/AOF/preteen', { title: "Preteens and Tweens" });
   }
   exports.RenderTeens = function(req, res, next) {
-    res.render('Services/AOF/teen', { title: "Areas of Focus" });
+    res.render('Services/AOF/teen', { title: "Adolescents and Teenagers" });
   }
   exports.RenderAdults = function(req, res, next) {
-    res.render('Services/AOF/adult', { title: "Areas of Focus" });
+    res.render('Services/AOF/adult', { title: "Adults" });
   }
   exports.RenderElderly= function(req, res, next) {
-    res.render('Services/AOF/elderly', { title: "Areas of Focus" });
+    res.render('Services/AOF/elderly', { title: "The Elderly" });
   }
   exports.RenderDisabilities= function(req, res, next) {
-    res.render('Services/AOF/disabilites', { title: "Areas of Focus" });
+    res.render('Services/AOF/disabilites', { title: "Persons with Mild/Moderate Developmental/Intellectual Disabilities" });
   }
