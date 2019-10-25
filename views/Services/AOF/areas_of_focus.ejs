@@ -1,32 +1,41 @@
 <% layout("/Layouts/default") -%>
+<style>
+  .to-the-end{
+    padding: 0px;
+  }
+</style>
 <body>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-12" style="margin-bottom:30px;">
-          <div id="areas_of_focus" style="text-align:center; margin-left: 150px; width: 80%; font-size:20px; margin-bottom: 300px">
-            <h1 style="color:purple"><%= title %></h1>
-            <div id="top" style="margin-bottom: 50px">
-              <p>I am open to working with clients from any origin including, African-American, Caucasian, Latino, Asian, Native American, Bi-racial, etc. 
-              Likewise I can work with Clients from any religious background, including, Christian, Muslim, Hindu, Buddhist, Atheist, Sikh, Jewish, etc.</p><br><br>
-              <div style="float: left; width: 45%; border: solid black 2px; border-radius: 20px; padding: 10px;">
-                  <a href="/Services/AOF/Preteens"><h3 style="color:purple">Preteens / Tweens (11 to 13) </h3></a>
-              </div>
-              <div style="float: right; width: 45%; border: solid black 2px; border-radius: 20px; padding: 10px;">
-                  <a href="/Services/AOF/Teens"><h3 style="color:purple">Adolescents / Teenagers (14 to 19) </h3></a>
-              </div> <br><br><br>
-              </div>
-              <div style="float: left; width: 31%; border: solid black 2px; border-radius: 20px; padding: 10px; margin-right:35px">
-                  <a href="/Services/AOF/Adults"><h3 style="color:purple">Adults </h3></a>
-              </div> 
-              <div style="float: left; width: 31%; border: solid black 2px; border-radius: 20px; padding: 10px">
-                  <a href="/Services/AOF/Elderly"><h3 style="color:purple">The Elderly</h3></a>
-              </div>
-              <div style="float: right; width: 31%; border: solid black 2px; border-radius: 20px; padding: 10px">
-                  <a href="/Services/AOF/Disabilities"><h4 style="color:purple">Persons with Mild/Moderate Developmental/Intellectual Disabilities</h4></a>
-            </div>
+  <div class="col-md-12 to-the-end" style="margin-bottom:30px;">
+    <div class="col-md-12 to-the-end" id="areas_of_focus" style="text-align:center; font-size:20px; margin-bottom: 30px">
+      <div class="col-md-8 col-md-offset-2" style="margin-bottom: 30px">
+        <h1 style="color:purple"><%= title %></h1>
+        <br>
+        <p>I am open to working with clients from any origin including, African-American, Caucasian, Latino, Asian, Native American, Bi-racial, etc. 
+            Likewise I can work with Clients from any religious background, including, Christian, Muslim, Hindu, Buddhist, Atheist, Sikh, Jewish, etc.</p><br><br>
+      </div>
+      <div class="col-md-12 to-the-end" id="top" style="margin-bottom: 50px; background-color: rgb(113, 206, 252)">
+        <div class="col-md-8 col-md-offset-2" style="margin-top: 30px; margin-bottom: 30px">
+          <h2 style="color:white">Different Areas of Focus</h2>
+          <br>
+          <br>
+          <div class="col-md-6">
+              <a href="/Services/AOF/Preteens"><h3>Preteens / Tweens (11 to 13) </h3></a>
           </div>
+          <div class="col-md-6">
+              <a href="/Services/AOF/Teens"><h3>Adolescents / Teenagers (14 to 19) </h3></a>
+          </div> <br><br><br><br><br>
+          <div class="col-md-4" style="border-radius: 20px; padding: 10px; margin-right:35px">
+              <a href="/Services/AOF/Adults"><h3>Adults </h3></a>
+          </div> 
+          <div class="col-md-4" border-radius: 20px; padding: 10px">
+              <a href="/Services/AOF/Elderly"><h3 >The Elderly</h3></a>
+          </div>
+          <div class="col-md-3" style="border-radius: 20px; padding: 10px">
+              <a href="/Services/AOF/Disabilities"><h4>Persons with Mild/Moderate Developmental/Intellectual Disabilities</h4></a>
+          </div> 
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
     

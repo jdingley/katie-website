@@ -1,10 +1,115 @@
 <% layout("/Layouts/default") -%>
+<style>
+  hr.home{
+    border: 2px rgb(2, 116, 173) solid;
+  }
+  .home-border{
+    padding: 0px;
+  }
+</style>
 <body>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-12" style="margin-bottom:30px;"> 
-         <h1><%= title %></h1>   
+    <div class="col-md-12">
+      <div class="col-md-8 col-md-offset-2" style="text-align:center">
+          <h2 style="color: purple">Welcome!</h2>
+          <br>
+          <p style="font-size: 20px; line-height: 30px">So I'm going to put in a bunch of filler text of a welcome message, this doesn't specifically
+          amount to anything more than a filler block. This is ome random text to check what this looks like</p>
+          <br>
+      </div>
+      <div class="col-md-12" id="quotes" style="text-align: center; height: 300px; padding: 100px;background-color:rgb(113, 206, 252); color: white;">
+        <div id="content-1" class="col-md-12" style="margin-bottom:150px;"> 
+          <h1>"Out of suffering have emerged the strongest souls;<br>the most massive charaters are seared with scars" -Khalil Gibran</h1>   
+        </div>
+        <div id="content-2" class="col-md-12" style="margin-bottom:30px;"> 
+            <h1>Quote 2</h1>   
+        </div>
+        <div id="content-3" class="col-md-12" style="margin-bottom:30px;"> 
+            <h1>Quote 3</h1>   
+        </div>
+        <div id="content-4" class="col-md-12" style="margin-bottom:30px;"> 
+            <h1>Quote 4</h1>   
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+          <br>
+          <img src="/images/profile.jpg" align=left height=300  width=220 style="margin-right:20px;">
+          <h2 style="float: left; color: purple">Meet Kadiatu Tarawalie</h2>
+          <br>
+          <br>
+          <p style="font-size: 20px; line-height: 30px">My name is Kadiatu Tarawalie. I migrated to the United States in 2000 as a refugee from Sierra Leone. 
+              Growing up I have always had a desire to help others. This included all different types of things such as  
+              volunteering to babysit for  family members so that they can have some down time away from their children; volunteering at a local catholic school helping 
+              at risk boys learn to read and write, working at a group home for adults with developmental disabilities, etc.</p>
+          <br>
+          <button type="button" id="go_to_about_page" class="btn btn-info">Learn More</button>
+          <br>
+          <br>
+          <br>
+          <br>
+      </div>
+      <div class="col-md-12 home-border" style="background-color:rgb(113, 206, 252); color: white; text-align:center;">
+        <div class="col-md-8 col-md-offset-1">
+          <br>
+          <br>
+          <br>
+          <div class="col-md-8">
+            <h2 style="color:white">Let's Get Started!</h2>
+          </div>
+          <div class="col-md-4" style="margin-bottom: 80px">
+            <button type="button" id="go_to_services_page" class="btn btn-info">See My Services</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-1" >
+          <br>
+          <h2 style="color: purple">Articles</h2>
+          <br>
+          <br>
+          <button type="button" id="go_to_article_page" class="btn btn-info">Read More</button>
+          <br>
+          <br>
+        </div>
+        <div class="col-md-5" >
+          <br>
+          <h2 style="color: purple; margin-right: 40px">Blog</h2>
+          <br>
+          <br>
+          <button type="button" id="go_to_blog_page" class="btn btn-info">Read More</button>
+          <br>
+          <br>
+        </div>
       </div>
     </div>
   </div>
 </body>
+
+<script>
+  $(document).ready(function(){
+    var divs = $('div[id^="content-"]').hide(),
+    i = 0;
+
+    (function cycle() { 
+        divs.eq(i).fadeIn(1500)
+                  .delay(5000)
+                  .fadeOut(1500, cycle);
+
+        i = ++i % divs.length; // increment i, 
+                              //   and reset to 0 when it equals divs.length
+    })();
+    $('#go_to_about_page').click(function() {
+        window.location.href = "/About";
+    })
+    $('#go_to_article_page').click(function() {
+        window.location.href = "/Blog";
+    })
+    $('#go_to_blog_page').click(function() {
+        window.location.href = "/Blog";
+    })
+    $('#go_to_services_page').click(function() {
+        window.location.href = "/Service";
+    })
+  });
+
+</script>
