@@ -2,9 +2,56 @@
 <body>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-12" style="margin-bottom:30px;">
-        <h1><%= title %></h1>
-      </div>
+Fa
+      <h2 style="color: purple">Send Me Your Questions</h2>
+      <p style="font-size: 20px;">
+        For general inquiry that will be send to my email, you may also use this form.
+        I will attempt to return your message as soon as possible.
+      </p>
+      <br>
+      <label style="font-size: 20px;">Name: </label>
+      <br>
+      <input type="text" id="name" class="form-control" name="name" required="">
+      <br>
+      <br>
+      <label style="font-size: 20px;">Date and Time: </label>
+      <br>
+      <input type="text" id="date" class="form-control" name="date" required="">
+      <br>
+      <br>
+      <label style="font-size: 20px;">Phone: </label>
+      <br>
+      <input type="text" id="phone" class="form-control" name="phone" required="">
+      <br>
+      <br>
+      <label style="font-size: 20px;">Comment or Message: </label>
+      <textarea id="message" class="form-control" name="message" rows="5" required=""></textarea>
+      <br>
+      <br>
+      <button type="button" id="submit_mail" class="btn btn-info submit_mail">Schedule Appointment</button>
+      <br>
+      <br>
+      <div class="col-md-12" id='calendar'></div>
     </div>
   </div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'dayGrid' ]
+    });
+
+    calendar.render();
+  });
+  $(document).ready(function() {
+      $('#submit_mail').click(function() {
+        var subject= document.getElementById('subject').value
+        var name= document.getElementById('name').value
+        var message= document.getElementById('message').value
+        var body = "Dear Kadiatu, "+"%0D%0A"+message+ "%0D%0A %0D%0A"+"Thank you,"+"%0D%0A %0D%0A %0D%0A"+name
+        window.location.href = "mailto:jdingley@hotmail.com ?subject="+subject+"&&body="+body;
+       })
+    })
+</script>
