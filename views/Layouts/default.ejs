@@ -26,6 +26,9 @@
     <script src='/js/fullcalendar/daygrid/main.js'></script>
 	<!-- Include socket.io -->
 	<script src="/js/socket.io.js"></script>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	 <script src="https://www.paypal.com/sdk/js?client-id=AdwIHTxs-swDXd7ePb8v_-oRhczSkbQnZKX3CvDncZHwX62-yF5082vH4zPs0Ov4yUan-TIhe-wWOqLe"></script>
 </head>
 <style>
 	#header {
@@ -134,58 +137,60 @@
     <div id="avaiability" class="col-md-6 col-md-offset-3" style="border: 2px transparent solid;color:#52028E; font-size: 20px; background-color: rgb(88, 197, 252);  border-radius: 10px;">
       <h2 style="padding: 15px; color:white">Avaiability</h2>
       <hr>
-      <div id="day_monday" class="col-md-3 col-md-offset-1" style="padding: 20px">
+      <div id="day_monday" class="col-md-2 col-md-offset-1" style="padding: 20px">
         Monday:
       </div>
-      <div id="time_monday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_monday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
       <br>
-      <div id="day_tuesday" class="col-md-3 col-md-offset-1" style="padding: 20px;">
+			<br>
+      <div id="day_tuesday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
         Tuesday:
       </div>
-      <div id="time_tuesday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_tuesday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
       <br>
-      <div id="day_wednsday" class="col-md-3 col-md-offset-1" style="padding: 20px;">
+		  <br>
+      <div id="day_wednsday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
         Wednsday:
       </div>
-      <div id="time_wednsday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_wednsday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
       <br>
-      <div id="day_thursday" class="col-md-3 col-md-offset-1" style="padding: 20px;">
+      <div id="day_thursday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
         Thursday:
       </div>
-      <div id="time_thursday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_thursday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
       <br>
-      <div id="day_friday" class="col-md-3 col-md-offset-1" style="padding: 20px;">
+      <div id="day_friday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
         Friday:
       </div>
-      <div id="time_friday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_friday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
       <br>
-      <div id="day_satruday" class="col-md-3 col-md-offset-1" style="padding: 20px;">
+      <div id="day_satruday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
         Saturday:
       </div>
-      <div id="time_saturday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_saturday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
       <br>
-      <div id="day_sunday" class="col-md-3 col-md-offset-1" style="padding: 20px;">
+      <div id="day_sunday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
         Sunday:
       </div>
-      <div id="time_sunday" class="col-md-8" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; width: 300px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+      <div id="time_sunday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
         9:00 AM - 5:00 PM
       </div>
       <br>
