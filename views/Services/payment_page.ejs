@@ -1,10 +1,44 @@
 <% layout("/Layouts/default") -%>
 <body>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-12" style="margin-bottom:30px;">
-        <h1><%= title %></h1>
-      </div>
-    </div>
-  </div>
+		<div class="col-md-6 col-md-offset-3" style="margin-bottom:30px;">
+			<h1 style="color:purple"><%= title %></h1>
+			<br>
+			<label style="font-size: 20px;">Payment Amonunt (USD): </label>
+			<br>
+			<input type="text" id="value" class="form-control" name="value" required="">
+			<br>
+			<br>
+			<div id="paypal-button-container" class="col-md-8 col-md-offset-2"></div>
+		</div>
+	</div>
 </body>
+
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: document.getElementById('value').value
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Transaction completed by ' + details.payer.name.given_name);
+        // Call your server to save the transaction
+        return fetch('/paypal-transaction-complete', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            orderID: data.orderID
+          })
+        });
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
