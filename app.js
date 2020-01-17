@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
   res.status(400).render('Error/denied_access', {
     controller: req.url.split('/')[1],
     view: req.url.split('/')[2],
-    title: 'Page Not Found | SMART Carpet Portal System'
+      title: 'Page Not Found | Uplifting Counseling Services, LCC '
   });  
 }); 
 
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
   res.status(404).render('Error/page_not_found', {
     controller: req.url.split('/')[1],
     view: req.url.split('/')[2],
-    title: 'Page Not Found | SMART Carpet Portal System'
+      title: 'Page Not Found | Uplifting Counseling Services, LCC '
   });  
 }); 
 
@@ -54,7 +54,7 @@ app.use(function(err, req, res, next) {
   res.status(500).render('Error/internal_server_error', {
     controller: req.url.split('/')[1],
     view: req.url.split('/')[2],
-    title: 'Internal Server Error | SMART Carpet Portal System'
+      title: 'Internal Server Error | Uplifting Counseling Services, LCC '
   });  
 }); 
 module.exports = app;
