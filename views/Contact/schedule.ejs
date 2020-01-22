@@ -38,7 +38,12 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'dayGrid' ]
+      plugins: ['dayGrid'],
+      navLinks: true,
+      navLinkDayClick: function(date, jsEvent) {
+        console.log('day', date.toISOString());
+        window.location='/Schedule/' + date.toISOString() 
+      }
     });
 
     calendar.render();
