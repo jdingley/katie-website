@@ -1,37 +1,49 @@
 <% layout("/Layouts/default") -%>
 <body>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2 style="color: purple">Schedule your appointemt</h2>
-      <p style="font-size: 20px;">
-          Please use the form below to schedule an appointment with me. The calendar below indicates times I'm already booked.
-      </p>
-      <br>
-      <label style="font-size: 20px;">Name: </label>
-      <br>
-      <input type="text" id="name" class="form-control" name="name" required="">
-      <br>
-      <br>
-      <label style="font-size: 20px;">Date and Time: </label>
-      <br>
-      <input type="text" id="date" class="form-control" name="date" required="">
-      <br>
-      <br>
-      <label style="font-size: 20px;">Phone: </label>
-      <br>
-      <input type="text" id="phone" class="form-control" name="phone" required="">
-      <br>
-      <br>
-      <label style="font-size: 20px;">Comment or Message: </label>
-      <textarea id="message" class="form-control" name="message" rows="5" required=""></textarea>
-      <br>
-      <br>
-      <button type="button" id="submit_mail" class="btn btn-info submit_mail">Schedule Appointment</button>
-      <br>
-      <br>
-      <div class="col-md-12" id='calendar'></div>
+  <form action="/Schedule/post" method="post">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 style="color: purple">Schedule your appointemt</h2>
+        <p style="font-size: 20px;">
+            Please use the form below to schedule an appointment with me. The calendar below indicates times I'm already booked.
+        </p>
+        <br>
+        <label style="font-size: 20px;">Name: </label>
+        <br>
+        <input type="text" id="name" class="form-control" name="name" required="">
+        <br>
+        <br>
+        <label style="font-size: 20px;">Date: </label>
+        <br>
+        <input type="date" id="date" class="form-control" name="date" required="">
+        <br>
+        <br>
+        <label style="font-size: 20px;">Time: </label>
+        <br>
+        <input type="time" id="datetime" class="form-control" name="time" required="">
+        <br>
+        <br>
+        <label style="font-size: 20px;">Phone: </label>
+        <br>
+        <input type="text" id="phone" class="form-control" name="phone" required="">
+        <br>
+        <br>
+        <label style="font-size: 20px;">Email: </label>
+        <br>
+        <input type="text" id="email" class="form-control" name="email" required="">
+        <br>
+        <br>
+        <label style="font-size: 20px;">Comment or Message: </label>
+        <textarea id="message" class="form-control" name="message" rows="5" required=""></textarea>
+        <br>
+        <br>
+        <button type="submit" id="submit_mail" class="btn btn-info submit_mail">Schedule Appointment</button>
+        <br>
+        <br>
+        <div class="col-md-12" id='calendar'></div>
+      </div>
     </div>
-  </div>
+  </form>
 </body>
 <script>
   document.addEventListener('DOMContentLoaded', function() {

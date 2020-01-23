@@ -4,13 +4,13 @@
     <div class="col-md-8 col-md-offset-2">
       <h1>Blog</h1>
       <br>
-        <% for(let i = 0; i < results.length; i++) { %>
+        <% for(let i = 0; i < results[0].length; i++) { %>
             <article>
-                <h3><%= results[i].title %></h3>
+                <h3><%= results[0][i].title %></h3>
                 <br>
-                <h6><b>By:</b> <%= results[i].author %> <b>Posted:</b> <%= results[i].date %></h6>
+                <h6><b>By:</b> <%= results[0][i].author %> <b>Posted:</b> <%= results[0][i].date %></h6>
                 <br>
-                <p><%= results[i].content.slice(0, 100)%></p>
+                <p><%= results[0][i].content.slice(0, 100)%></p>
             </article>
         <% } %>
     </div>

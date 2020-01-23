@@ -1,0 +1,71 @@
+<% layout("/Layouts/default") -%>
+<style>
+  .button {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: normal;
+    background-color: #3498db;
+    color: fff;
+    border-color: #258cd1;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+  }
+
+  .button:hover {
+    color: #ffffff;
+    background-color: #2383c4;
+    border-color: #1c699d;
+    text-decoration: none;
+  }
+</style>
+<script></script>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-12" style="margin-bottom:30px;">
+          <body>
+              <h1 style="color:purple"><%= title %></h1>
+              <div id="contact_form">
+                <p style="font-size: 20px;">Please use the form on this page to send a message. The following email and phone are also avaiable for contact.</p>
+                <br>
+                <p style="font-size: 20px;"><a href="mailto:www@upliftingcounselingservices.com"><i class="fa fa-envelope"></i> www@upliftingcounselingservices.com</a> |
+                  <a href="tel:(609) 248-0291"><i class="fa fa-phone"></i> (609) 248-0291</a></p></p>
+                <hr>
+                <h2 style="color: purple">Send Me Your Questions</h2>
+                <p style="font-size: 20px;">
+                  For general inquiry that will be send to my email, you may also use this form.
+                  I will attempt to return your message as soon as possible.
+                </p>
+                <br>
+                <label style="font-size: 20px;">Name: </label>
+                <br>
+                <input type="text" id="name" class="form-control" name="name" required="">
+
+                <br>
+                <br>
+                <label style="font-size: 20px;">Subject: </label>
+                <br>
+                <input type="text" id="subject" class="form-control" name="subject" required="">
+                <br>
+                <br>
+                <label style="font-size: 20px;">Message: </label>
+                <textarea id="message" class="form-control" name="message" rows="3" required=""></textarea>
+                <br>
+                <br>
+                <button type="button" id="submit_mail" class="btn btn-info submit_mail">Submit</button>
+              </div>
+          </body>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#submit_mail').click(function() {
+        var subject= document.getElementById('subject').value
+        var name= document.getElementById('name').value
+        var message= document.getElementById('message').value
+        var body = "Dear Kadiatu, "+"%0D%0A"+message+ "%0D%0A %0D%0A"+"Thank you,"+"%0D%0A %0D%0A %0D%0A"+name
+        window.location.href = "mailto:jdingley@hotmail.com ?subject="+subject+"&&body="+body;
+       })
+    })
+  </script>
