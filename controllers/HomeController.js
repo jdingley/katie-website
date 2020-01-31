@@ -30,7 +30,6 @@ exports.RenderHomePage = function(req, res, next) {
     ],
       function (error, results, fields) {
       if (error) throw error;
-      console.log(results[1][0][0])
       res.render('Home/home_page',
       { 
         quote1: results[0][0][0].quote,

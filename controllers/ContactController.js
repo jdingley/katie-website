@@ -87,36 +87,6 @@ exports.RenderSchedule = function(req, res, next) {
   });
 }
 
-exports.ScheduleAppointment = function(req, res, next) {
-  db.getConnection (function (err, connection) {
-    async.parallel ([
-      function(cb) { 
-        db.query('INSERT INTO schedule (name, date, time, phone, email, message) VALUES ('+connection.escape(req.body.name)+', '+connection.escape(req.body.date)+', TIME_FORMAT('+connection.escape(req.body.time)+', "%H:%i:%s"), '+connection.escape(req.body.phone)+', '+connection.escape(req.body.email)+','+connection.escape(req.body.message)+')', cb) 
-      },
-      function(cb) {
-        db.query('SELECT * FROM availability', cb)
-      }
-    ],
-      function (error, results, fields) {
-        console.log(results[1][0][0].times);
-        connection.release();
-        if (error) throw error;
-
-        res.render('Contact/schedule',
-        { 
-          monday_time: results[1][0][0].times,
-          tuesday_time: results[1][0][1].times,
-          wednesday_time: results[1][0][2].times,
-          thursday_time: results[1][0][3].times,
-          friday_time: results[1][0][4].times,
-          saturday_time: results[1][0][5].times,
-          sunday_time: results[1][0][6].times,
-          title: 'Schedule'
-        })
-    });
-  });
-}
-
 exports.RenderContactPage = function(req, res, next) {
   db.getConnection (function (err, connection) {
   async.parallel ([
