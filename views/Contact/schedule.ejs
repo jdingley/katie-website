@@ -1,72 +1,53 @@
 <% layout("/Layouts/default") -%>
-<body>
-  <form action="/Schedule/post" method="post">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h2 style="color: purple">Schedule your appointemt</h2>
-        <p style="font-size: 20px;">
-            Please use the form below to schedule an appointment with me. The calendar below indicates times I'm already booked.
-        </p>
-        <br>
-        <label style="font-size: 20px;">Name: </label>
-        <br>
-        <input type="text" id="name" class="form-control" name="name" required="">
-        <br>
-        <br>
-        <label style="font-size: 20px;">Date: </label>
-        <br>
-        <input type="date" id="date" class="form-control" name="date" required="">
-        <br>
-        <br>
-        <label style="font-size: 20px;">Time: </label>
-        <br>
-        <input type="time" id="datetime" class="form-control" name="time" required="">
-        <br>
-        <br>
-        <label style="font-size: 20px;">Phone: </label>
-        <br>
-        <input type="text" id="phone" class="form-control" name="phone" required="">
-        <br>
-        <br>
-        <label style="font-size: 20px;">Email: </label>
-        <br>
-        <input type="text" id="email" class="form-control" name="email" required="">
-        <br>
-        <br>
-        <label style="font-size: 20px;">Comment or Message: </label>
-        <textarea id="message" class="form-control" name="message" rows="5" required=""></textarea>
-        <br>
-        <br>
-        <button type="submit" id="submit_mail" class="btn btn-info submit_mail">Schedule Appointment</button>
-        <br>
-        <br>
-        <div class="col-md-12" id='calendar'></div>
-      </div>
-    </div>
-  </form>
-</body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+<html>
+    <head>
+        <title>Schedule</title>
+        <meta charset="utf-8">
+        <!-- scheduler -->
+        <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js" 
+            charset="utf-8"></script>
+      <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" 
+            rel="stylesheet" type="text/css" charset="utf-8">
+        <style>
+            html, body{
+                margin:0px;
+                padding:0px;
+                height:100%;
+            }
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: ['dayGrid'],
-      navLinks: true,
-      navLinkDayClick: function(date, jsEvent) {
-        console.log('day', date.toISOString());
-        window.location='/Schedule/' + date.toISOString() 
-      }
-    });
-
-    calendar.render();
-  });
-  $(document).ready(function() {
-      $('#submit_mail').click(function() {
-        var subject= document.getElementById('subject').value
-        var name= document.getElementById('name').value
-        var message= document.getElementById('message').value
-        var body = "Dear Kadiatu, "+"%0D%0A"+message+ "%0D%0A %0D%0A"+"Thank you,"+"%0D%0A %0D%0A %0D%0A"+name
-        window.location.href = "mailto:jdingley@hotmail.com ?subject="+subject+"&&body="+body;
-       })
-    })
-</script>
+        </style>
+    </head>
+    <body>
+        <div id="scheduler_here" class="dhx_cal_container" 
+            style='width:100%; height:100%;'>
+            <div class="dhx_cal_navline">
+                <div class="dhx_cal_prev_button">&nbsp;</div>
+                <div class="dhx_cal_next_button">&nbsp;</div>
+                <div class="dhx_cal_today_button"></div>
+                <div class="dhx_cal_date"></div>
+                <div class="dhx_cal_tab" name="day_tab"></div>
+                <div class="dhx_cal_tab" name="week_tab"></div>
+                <div class="dhx_cal_tab" name="month_tab"></div>
+            </div>
+            <div class="dhx_cal_header"></div>
+            <div class="dhx_cal_data"></div>
+        </div>
+        <script>
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            // set format of dates in the data source
+            scheduler.config.xml_date="%Y-%m-%d %H:%i";
+            scheduler.init('scheduler_here', today, "week");
+            scheduler.setLoadMode("day"); 
+ 
+            scheduler.load("http://localhost/data", "json");
+ 
+            var dp = new dataProcessor("http://localhost/data");
+            // use RESTful API on the backend
+            dp.setTransactionMode("REST");
+            dp.init(scheduler);
+        </script>
+    </body>
+</html>

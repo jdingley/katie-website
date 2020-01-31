@@ -99,6 +99,7 @@ exports.ScheduleAppointment = function(req, res, next) {
       }
     ],
       function (error, results, fields) {
+        console.log(results[1][0][0].times);
         connection.release();
         if (error) throw error;
 

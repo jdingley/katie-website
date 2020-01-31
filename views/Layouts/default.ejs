@@ -14,21 +14,26 @@
 	<link rel="stylesheet" href="/css/app.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 	<link rel="stylesheet" href="/js/plugins/datepicker/datepicker.css" type="text/css" />
-	<link rel="stylesheet" href="/js/plugins/DataTables-1.10.7/media/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css" type="text/css" />
 	<link rel="stylesheet" href="/js/plugins/magnific/magnific-popup.css" type="text/css" />
   <link rel="icon" sizes="192x192" href="/images/uplifiting_icon.ico"> 
-  <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
-  <link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
 	<script src="/js/jquery-2.1.4.min.js"></script>
   <script src="/js/moment.js"></script>
-  <script src='/js/fullcalendar/core/main.js'></script>
-  <script src='/js/fullcalendar/daygrid/main.js'></script>
 	<!-- Include socket.io -->
   <script src="/js/socket.io.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<script src="https://www.paypal.com/sdk/js?client-id=AdwIHTxs-swDXd7ePb8v_-oRhczSkbQnZKX3CvDncZHwX62-yF5082vH4zPs0Ov4yUan-TIhe-wWOqLe"></script>
+  <meta content="text/html; charset=utf-8">
+  <script src="codebase/dhtmlxscheduler.js" ></script>
+  <link rel="stylesheet" href="codebase/dhtmlxscheduler.css">
+  <title>DHTMLX Sсheduler example</title>
+  <meta charset="utf-8">
+  <!-- scheduler -->
+  <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js" 
+      charset="utf-8"></script>
+  <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" 
+      rel="stylesheet" type="text/css" charset="utf-8">
 </head>
 <style>
 	#header {
@@ -132,70 +137,7 @@
 <br>
 <body>
   <%- body -%>
-  <div class="footer-wrapper"> <!-- footer wrapper -->
-    <hr>
-    <div id="avaiability" class="col-md-6 col-md-offset-3" style="border: 2px transparent solid;color:#52028E; font-size: 20px; background-color: rgb(88, 197, 252);  border-radius: 10px;">
-      <h2 style="padding: 15px; color:white">Avaiability</h2>
-      <hr>
-      <div id="day_monday" class="col-md-2 col-md-offset-1" style="padding: 20px">
-        Monday:
-      </div>
-      <div id="time_monday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  monday_time %>
-      </div>
-      <br>
-      <br>
-			<br>
-      <div id="day_tuesday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
-        Tuesday:
-      </div>
-      <div id="time_tuesday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  tuesday_time %>
-      </div>
-      <br>
-      <br>
-		  <br>
-      <div id="day_wednsday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
-        Wednesday:
-      </div>
-      <div id="time_wednsday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  wednesday_time %>
-      </div>
-      <br>
-      <br>
-      <div id="day_thursday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
-        Thursday:
-      </div>
-      <div id="time_thursday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  thursday_time %>
-      </div>
-      <br>
-      <br>
-      <div id="day_friday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
-        Friday:
-      </div>
-      <div id="time_friday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  friday_time %>
-      </div>
-      <br>
-      <br>
-      <div id="day_satruday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
-        Saturday:
-      </div>
-      <div id="time_saturday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  saturday_time %>
-      </div>
-      <br>
-      <br>
-      <div id="day_sunday" class="col-md-2 col-md-offset-1" style="padding: 20px;">
-        Sunday:
-      </div>
-      <div id="time_sunday" class="col-md-9" style="background-color: white; padding: 20px; border: 2px transparent solid;color:purple; text-align: center; margin-bottom: 30px; border-radius: 10px;">
-        <%=  sunday_time %>
-      </div>
-      <br>
-      <br>
-    </div>
+  
     <br>
 
     <footer>
@@ -226,7 +168,7 @@
   <script src="/js/plugins/jquery.validate.js"></script>
   <script src="/js/plugins/additional_methods.js"></script>
   <script>
-$(function(){
+    $(function(){
         $('a').each(function(){
             if ($(this).prop('href') == window.location.href) {
                 $(this).addClass('active'); $(this).parents('li').addClass('active');
