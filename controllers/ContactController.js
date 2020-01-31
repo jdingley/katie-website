@@ -9,8 +9,7 @@ var server = http.createServer(app);
 const mysql = require('mysql');
 var async = require("async");
 var session = require("express-session");
-var okta = require("@okta/okta-sdk-nodejs");
-var ExpressOIDC = require("@okta/oidc-middleware").ExpressOIDC;
+
 
 var db = mysql.createPool ({
   user: 'root',
