@@ -53,6 +53,7 @@ app.use(function(req, res, next) {
     controller: req.url.split('/')[1],
     view: req.url.split('/')[2],
     title: 'Page Not Found | Uplifting Counseling Services, LCC'
+
   });  
 }); 
 
@@ -70,6 +71,7 @@ app.use(function(err, req, res, next) {
     controller: req.url.split('/')[1],
     view: req.url.split('/')[2],
     title: 'Internal Server Error | Uplifting Counseling Services, LCC'
+
   });  
 }); 
 
