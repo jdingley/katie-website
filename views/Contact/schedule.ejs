@@ -1,53 +1,69 @@
 <% layout("/Layouts/default") -%>
+<!doctype html>
 <html>
-    <head>
-        <title>Schedule</title>
-        <meta charset="utf-8">
-        <!-- scheduler -->
-        <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js" 
-            charset="utf-8"></script>
-      <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" 
-            rel="stylesheet" type="text/css" charset="utf-8">
-        <style>
-            html, body{
-                margin:0px;
-                padding:0px;
-                height:100%;
-            }
+	<head>
+		<title>DHTMLX Scheduler with Node.js - Basic CRUD</title>
+		<meta charset="utf-8">
 
-        </style>
-    </head>
-    <body>
-        <div id="scheduler_here" class="dhx_cal_container" 
-            style='width:100%; height:100%;'>
-            <div class="dhx_cal_navline">
-                <div class="dhx_cal_prev_button">&nbsp;</div>
-                <div class="dhx_cal_next_button">&nbsp;</div>
-                <div class="dhx_cal_today_button"></div>
-                <div class="dhx_cal_date"></div>
-                <div class="dhx_cal_tab" name="day_tab"></div>
-                <div class="dhx_cal_tab" name="week_tab"></div>
-                <div class="dhx_cal_tab" name="month_tab"></div>
-            </div>
-            <div class="dhx_cal_header"></div>
-            <div class="dhx_cal_data"></div>
-        </div>
-        <script>
+		<script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css" type="text/css" charset="utf-8">
+		<style>
+			html, body{
+				margin:0px;
+				padding:0px;
+				height:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+			<div class="dhx_cal_navline">
+				<div class="dhx_cal_prev_button">&nbsp;</div>
+				<div class="dhx_cal_next_button">&nbsp;</div>
+				<div class="dhx_cal_today_button"></div>
+				<div class="dhx_cal_date"></div>
+				<div class="dhx_cal_tab" name="day_tab"></div>
+				<div class="dhx_cal_tab" name="week_tab"></div>
+				<div class="dhx_cal_tab" name="month_tab"></div>
+			</div>
+			<div class="dhx_cal_header"></div>
+			<div class="dhx_cal_data"></div>
+		</div>
+		<script>
             var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes();
+            var dateTime = date+' '+time;
             // set format of dates in the data source
-            scheduler.config.xml_date="%Y-%m-%d %H:%i";
-            scheduler.init('scheduler_here', today, "week");
-            scheduler.setLoadMode("day"); 
- 
-            scheduler.load("http://localhost/data", "json");
- 
-            var dp = new dataProcessor("http://localhost/data");
-            // use RESTful API on the backend
-            dp.setTransactionMode("REST");
-            dp.init(scheduler);
-        </script>
-    </body>
+			scheduler.config.icons_select = [];
+			scheduler.config.drag_resize = false;
+
+			scheduler.templates.event_header = function(start,end,ev){
+				return scheduler.templates.event_date(start)+" - "+
+				scheduler.templates.event_date(end);
+			};
+			
+			scheduler.config.lightbox.sections=[
+				{name:"Message", height:150, map_to:"text", type:"textarea" , focus:true},
+				{name:"Name", height:62, label:"name", map_to:"name", type:"textarea"},
+				{name:"Phone", height:62, label:"phone", map_to:"phone", type:"textarea"},
+				{name:"Email", height:62, label:"email", map_to:"email", type:"textarea"},
+			{name:"time", height:72, type:"time", map_to:"auto"}
+			];
+
+			scheduler.config.xml_date="%Y-%m-%d %H:%i";
+			scheduler.init("scheduler_here", dateTime, "month");
+            scheduler.setLoadMode("day");
+
+			// load data from backend
+			scheduler.load("/events", "json");
+
+			// connect backend to scheduler
+			var dp = new dataProcessor("/events");
+			dp.init(scheduler);
+
+			// set data exchange mode
+			dp.setTransactionMode("REST");
+		</script>
+	</body>
 </html>
