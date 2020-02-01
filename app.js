@@ -7,6 +7,8 @@ var session = require("express-session");
 const express = require("express");
 const app = express();
 var server = http.createServer(app);
+var routes = require('./routes')
+var user = require('./routes/user')
 // use body parse for parsing POST request
 const bodyParser = require("body-parser");
 const port = 3000;
@@ -39,6 +41,12 @@ app.engine('ejs', engine);
 app.set('view engine', 'ejs');    
 app.set('views', __dirname +'/views'); 
 app.use(bodyParser.json());
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,6 +57,11 @@ app.use('/', aboutRouter);
 app.use('/', servicesRouter);
 app.use('/', contactRouter);
 app.use('/', blogRouter);
+app.get('/', routes.index);//call for main index page
+app.get('/login', routes.index);//call for login page
+app.post('/login', user.login);//call for login post
+app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
+app.get('/home/logout', user.logout);//call for logout
 
 // scheduler sends application/x-www-form-urlencoded requests,
 app.use(bodyParser.urlencoded({ extended: true }));

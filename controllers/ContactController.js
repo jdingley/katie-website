@@ -139,6 +139,7 @@ exports.RenderAdminLogin = function(req, res, next) {
 
         res.render('Contact/admin_login',
         { 
+          message: "",
           monday_time: results[1][0][0].times,
           tuesday_time: results[1][0][1].times,
           wednesday_time: results[1][0][2].times,
