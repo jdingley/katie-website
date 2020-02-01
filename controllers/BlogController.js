@@ -32,6 +32,7 @@ exports.RenderBlog = function(req, res, next) {
 
         res.render('Blog/blog',
         { 
+          authority: "User",
           results: results[0],
           posts: results[0].content,
           blog_title: results[0].title,

@@ -33,6 +33,7 @@ exports.RenderAboutPage = function(req, res, next) {
 
         res.render('About/about_page',
         { 
+          authority: "User",
           results: results[0],
           posts: results[0].content,
           blog_title: results[0].title,

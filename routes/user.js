@@ -24,24 +24,43 @@ exports.login = function(req, res){
 
    if(req.method == "POST"){
       var post  = req.body;
-      var name= post.user_name;
-      var pass= post.password;
+      var name = post.user_name;
+      var pass = post.password;
      
-      var sql="SELECT id, first_name, last_name, user_name FROM `users` WHERE `user_name`='"+name+"' and password = '"+pass+"'"; 
       db.getConnection (function (err, connection) {                          
          async.parallel ([
             function(cb) {
-               db.query(sql, cb)
+               db.query("SELECT id, passwords, user_name FROM users WHERE user_name = "+connection.escape(name)+" AND passwords = "+connection.escape(pass)+"", cb)
             },
             function(cb) {
                db.query('SELECT * FROM availability', cb)
-            }
+            },      
+            function(cb) { 
+               db.query('SELECT * FROM quotes', cb) 
+             },
+             function(cb) {
+               db.query("SELECT  * FROM users LEFT JOIN user_role ON users.id = user_role.user_id LEFT JOIN roles ON user_role.role_id = roles.id WHERE user_name = "+connection.escape(name)+" AND passwords = "+connection.escape(pass)+"", cb)
+             }
          ],function(err, results){      
             if(results.length){
-               req.session.userId = results[0][0].id;
-               req.session.user = results[0][0];
-               console.log(results[0][0].id);
-               res.render('Contact/admin_login.ejs', {
+               req.session.userId = results[0][0][0].id;
+               req.session.user = results[0][0][0];
+               console.log(results[3][0][0].authority);
+               res.render('Home/home_page.ejs', {
+                  message: "Successful",
+                  authority: results[3][0][0].authority,
+                  quote1: results[2][0][0].quote,
+                  author1: results[2][0][0].author,
+                  quote2: results[2][0][1].quote,
+                  author2: results[2][0][1].author,
+                  quote3: results[2][0][2].quote,
+                  author3: results[2][0][2].author,
+                  quote4: results[2][0][3].quote,
+                  author4: results[2][0][3].author,
+                  quote5: results[2][0][4].quote,
+                  author5: results[2][0][4].author,
+                  quote6: results[2][0][5].quote,
+                  author6: results[2][0][5].author,
                   monday_time: results[1][0][0].times,
                   tuesday_time: results[1][0][1].times,
                   wednesday_time: results[1][0][2].times,
@@ -49,13 +68,13 @@ exports.login = function(req, res){
                   friday_time: results[1][0][4].times,
                   saturday_time: results[1][0][5].times,
                   sunday_time: results[1][0][6].times,
-                  title: 'Login'
+                  title: 'Home'
                });
             }
             else{
-               message = 'Wrong Credentials.';
                res.render('Contact/admin_login.ejs',{ 
-                  message: message,
+                  authority: "User",
+                  message: 'Wrong Credentials.',
                   monday_time: results[1][0][0].times,
                   tuesday_time: results[1][0][1].times,
                   wednesday_time: results[1][0][2].times,

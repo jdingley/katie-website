@@ -33,6 +33,7 @@ exports.RenderServicesPage = function(req, res, next) {
 
       res.render('Services/services_page', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -61,6 +62,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/payment_page', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -89,6 +91,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/intake_page', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -117,6 +120,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/AOF/areas_of_focus', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -145,6 +149,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/AOF/preteen', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -173,6 +178,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/AOF/teen', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -201,6 +207,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/AOF/adult', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -229,6 +236,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/AOF/elderly', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,
@@ -257,6 +265,7 @@ exports.RenderServicesPage = function(req, res, next) {
     
       res.render('Services/AOF/disabilites', 
       { 
+        authority: "User",
         monday_time: results[1][0][0].times,
         tuesday_time: results[1][0][1].times,
         wednesday_time: results[1][0][2].times,

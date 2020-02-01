@@ -120,6 +120,9 @@
     <li><a href="/Contact">Contact Me</a></li>
     <li><a href="/Blog">Blog</a></li>
     <li><a href="/Schedule">Schedule</a></li>
+    <% if (authority == "ROLE_ADMIN") { %>
+      <li><a href="/Edit/?authority=ROLE_ADMIN">Edit</a></li>
+    <% } %>
     </ul>
   </div>
   </nav>
@@ -151,7 +154,8 @@
       </div>
       <div class="col-md-8 col-md-offset-2" style="text-align:center;">
         <hr>
-        <span class="text-muted"><a href="/AdminLogin">Admin Login</a> | Uplifting Counseling Services, LCC, Kadiatu Tarawalie, MA, LPC, NCC</span>
+        <% if (authority == "User") { %> <span class="text-muted"><a href="/AdminLogin">Admin Login</a>| Uplifting Counseling Services, LCC, Kadiatu Tarawalie, MA, LPC, NCC</span>
+      <% } else { %> <span class="text-muted">Uplifting Counseling Services, LCC, Kadiatu Tarawalie, MA, LPC, NCC</span> <% } %>
       </div>
     </footer>
   </body>

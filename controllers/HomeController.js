@@ -32,6 +32,7 @@ exports.RenderHomePage = function(req, res, next) {
       if (error) throw error;
       res.render('Home/home_page',
       { 
+        authority: "User",
         quote1: results[0][0][0].quote,
         author1: results[0][0][0].author,
         quote2: results[0][0][1].quote,

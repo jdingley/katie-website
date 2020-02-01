@@ -34,6 +34,7 @@ exports.RenderContactPage = function(req, res, next) {
 
       res.render('Contact/contact_page',
       { 
+        authority: "User",
         results: results[0],
         posts: results[0].content,
         blog_title: results[0].title,
@@ -69,6 +70,7 @@ exports.RenderSchedule = function(req, res, next) {
 
         res.render('Contact/schedule',
         { 
+          authority: "User",
           results: results[0],
           posts: results[0].content,
           blog_title: results[0].title,
@@ -104,6 +106,7 @@ exports.RenderContactPage = function(req, res, next) {
 
       res.render('Contact/contact_page',
       { 
+        authority: "User",
         results: results[0],
         posts: results[0].content,
         blog_title: results[0].title,
@@ -139,6 +142,7 @@ exports.RenderAdminLogin = function(req, res, next) {
 
         res.render('Contact/admin_login',
         { 
+          authority: "User",
           message: "",
           monday_time: results[1][0][0].times,
           tuesday_time: results[1][0][1].times,
