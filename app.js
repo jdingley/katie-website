@@ -11,6 +11,7 @@ var routes = require('./routes')
 var user = require('./routes/user')
 // use body parse for parsing POST request
 const bodyParser = require("body-parser");
+const querystring = require('querystring');
 const port = 3000;
 
 // we'll use mysql for db access and util to promisify queries
@@ -34,6 +35,7 @@ var aboutRouter = require('./routes/about');
 var servicesRouter = require('./routes/services');
 var contactRouter = require('./routes/contact');
 var blogRouter = require('./routes/blog');
+var adminRouter = require('./routes/adminpanel');
 
 // view engine setup
 var engine = require('ejs-mate');
@@ -57,6 +59,7 @@ app.use('/', aboutRouter);
 app.use('/', servicesRouter);
 app.use('/', contactRouter);
 app.use('/', blogRouter);
+app.use('/', adminRouter);
 app.get('/', routes.index);//call for main index page
 app.get('/login', routes.index);//call for login page
 app.post('/login', user.login);//call for login post
