@@ -73,7 +73,6 @@ class Storage {
 			action: "inserted",
 			tid: result.insertId
 		}
-
 	}
 
 	// update event
