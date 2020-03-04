@@ -1,5 +1,4 @@
 <% layout("/Layouts/default") -%>
-<<<<<<< HEAD
 <style>
 	textarea {
   width: 300px;
@@ -8,11 +7,11 @@
 </style>
 <body>
   <div class="row">
-	<% if (message == 1) { %>
-		 <div class="alert alert-success col-sm-12">You successfully updated the time.</div>
-	<% } %>
+		<% if (message == 1) { %>
+			 <div class="alert alert-success col-sm-12">You successfully updated the time.</div>
+		<% } %>
     <div class="col-md-8 col-md-offset-2">
-			<form id="update_quote" class="form-horizontal" role="form" method="post" action="/PostQuote"> 
+			<form id="post_time" class="form-horizontal" role="form" method="post" action="/AdminPanel/PostTime"> 
 				<div style="margin-bottom: 25px" class="input-group">
 					<h2>Quote 1</h2>
 					<div style="margin-bottom: 10px" class=""form-control">
@@ -91,11 +90,6 @@
 					</div>
 				</div>
 			</form>
-=======
-<body>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
->>>>>>> c7df233c6ecfd6cdd6f184acd20c785219f942ff
     </div>
   </div>
 </body>

@@ -460,7 +460,7 @@ exports.EditAdmin = function(req, res, next) {
     db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT id, author, title, content, DATE_FORMAT(date, "%a %b, %d %Y") AS "date" FROM blog_posts', cb) 
+					db.query('SELECT * FROM users WHERE id = 1', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -471,10 +471,12 @@ exports.EditAdmin = function(req, res, next) {
 			],
 			function(error, results, fields) {
 				if (req.session.loggedin) {
-					res.render('Admin Panel/add_blog', 
+					res.render('Admin Panel/edit_admin', 
 					{ 
 						loggedin: req.session.loggedin,
 						message: 0,
+						username: results[0][0][0].user_name,
+						password: results[0][0][0].passwords,
 						monday_time: results[1][0][0].times,
 						tuesday_time: results[1][0][1].times,
 						wednesday_time: results[1][0][2].times,

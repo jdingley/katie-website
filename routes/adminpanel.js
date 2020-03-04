@@ -11,9 +11,9 @@ router.post('/AdminPanel/PostTime', AdminPanelController.PostEditTime);
 router.get('/AdminPanel/AddBlog', AdminPanelController.RenderAddBlog);
 router.post('/AdminPanel/PostBlog', AdminPanelController.PostBlog);
 router.get('/AdminPanel/EditAdmin', AdminPanelController.EditAdmin);
-router.post('/AdminPanel/EditAdmin', AdminPanelController.PostAdmin);
+router.post('/AdminPanel/PostAdmin', AdminPanelController.PostAdmin);
 router.get('/AdminPanel/AddCerts', AdminPanelController.AddCerts);
-router.post('/AdminPanel/AddCerts', AdminPanelController.PostCerts);
+router.post('/AdminPanel/PostCerts', AdminPanelController.PostCerts);
 router.post('/Auth', AdminPanelController.Auth);
 router.get('/AdminLogin', AdminPanelController.RenderAdminLogin);
 

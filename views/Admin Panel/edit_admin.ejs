@@ -11,28 +11,35 @@
 		 <div class="alert alert-success col-sm-12">You successfully updated the Admin Account information.</div>
 		<% } %>
     <div class="col-md-8 col-md-offset-2">
-			<form id="update_quote" class="form-horizontal" role="form" method="post" action="/PostQuote"> 
+			<form id="post_admin" class="form-horizontal" role="form" method="post" action="/AdminPanel/PostAdmin"> 
 				<div style="margin-bottom: 25px" class="input-group">
 					<h2>Username</h2>
 					<div style="margin-bottom: 10px" class=""form-control">
-						<input id="username" type="text" class="form-control" name="username" value=>
+						<input id="username" type="text" class="form-control" name="username" value=<%=username%>>
 					</div>
 					<br>
 					<div style="margin-bottom: 10px" class=""form-control">
 						<h2>Password</h2>
-						<input id="password" type="password" class="form-control" name="password" value=>
-					</div>
-					<div style="margin-bottom: 10px" class=""form-control">
-						<h2>Confirm Password</h2>
-						<input id="password_confirm" type="password" class="form-control" name="password_confirm" value=>
+						<input id="password" type="password" class="form-control" name="password" value=<%=password%>>
 					</div>
 				</div>
 				<div style="margin-top:10px" class="form-group">
 					<div class="col-sm-12 controls">
-						<button id="btn-login" type="submit" class="btn btn-success">Change Admin Settings</button>
+						<button id="update_admin" type="button" class="btn btn-success">Change Admin Settings</button>
 					</div>
 				</div>
 			</form>
     </div>
   </div>
 </body>
+<script>
+	 $('#update_admin').click(function () {
+    var url = this.href;
+    var confirmText = "Are you sure you want to update admin account with this information?";
+    if(confirm(confirmText)) {
+        $("#post_admin").submit();
+    }
+    return false;
+});
+</script>
+
