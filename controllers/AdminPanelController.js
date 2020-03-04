@@ -274,7 +274,22 @@ exports.PostEditQuote = function(req, res, next) {
   db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT id, author, title, content, DATE_FORMAT(date, "%a %b, %d %Y") AS "date" FROM blog_posts', cb) 
+					db.query('Update quotes SET quote = '+connection.escape(req.body.quote1)+', author = '+connection.escape(req.body.author1)+' WHERE id = 1', cb) 
+				},
+				function(cb) { 
+					db.query('Update quotes SET quote = '+connection.escape(req.body.quote2)+', author = '+connection.escape(req.body.author2)+' WHERE id = 2', cb) 
+				},
+				function(cb) { 
+					db.query('Update quotes SET quote = '+connection.escape(req.body.quote3)+', author = '+connection.escape(req.body.author3)+' WHERE id = 3', cb) 
+				},
+				function(cb) { 
+					db.query('Update quotes SET quote = '+connection.escape(req.body.quote4)+', author = '+connection.escape(req.body.author4)+' WHERE id = 4', cb) 
+				},
+				function(cb) { 
+					db.query('Update quotes SET quote = '+connection.escape(req.body.quote5)+', author = '+connection.escape(req.body.author5)+' WHERE id = 5', cb) 
+				},
+				function(cb) { 
+					db.query('Update quotes SET quote = '+connection.escape(req.body.quote6)+', author = '+connection.escape(req.body.author6)+' WHERE id = 6', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -285,29 +300,30 @@ exports.PostEditQuote = function(req, res, next) {
 			],
 			function(error, results, fields) {
 				if (req.session.loggedin) {
+
 					res.render('Admin Panel/edit_quote', 
 					{ 
 						loggedin: req.session.loggedin,
 						message: 1,
-						quote1: results[2][0][0].quote,
-						author1: results[2][0][0].author,
-						quote2: results[2][0][1].quote,
-						author2: results[2][0][1].author,
-						quote3: results[2][0][2].quote,
-						author3: results[2][0][2].author,
-						quote4: results[2][0][3].quote,
-						author4: results[2][0][3].author,
-						quote5: results[2][0][4].quote,
-						author5: results[2][0][4].author,
-						quote6: results[2][0][5].quote,
-						author6: results[2][0][5].author,
-						monday_time: results[1][0][0].times,
-						tuesday_time: results[1][0][1].times,
-						wednesday_time: results[1][0][2].times,
-						thursday_time: results[1][0][3].times,
-						friday_time: results[1][0][4].times,
-						saturday_time: results[1][0][5].times,
-						sunday_time: results[1][0][6].times,
+						quote1: results[7][0][0].quote,
+						author1: results[7][0][0].author,
+						quote2: results[7][0][1].quote,
+						author2: results[7][0][1].author,
+						quote3: results[7][0][2].quote,
+						author3: results[7][0][2].author,
+						quote4: results[7][0][3].quote,
+						author4: results[7][0][3].author,
+						quote5: results[7][0][4].quote,
+						author5: results[7][0][4].author,
+						quote6: results[7][0][5].quote,
+						author6: results[7][0][5].author,
+						monday_time: results[6][0][0].times,
+						tuesday_time: results[6][0][1].times,
+						wednesday_time: results[6][0][2].times,
+						thursday_time: results[6][0][3].times,
+						friday_time: results[6][0][4].times,
+						saturday_time: results[6][0][5].times,
+						sunday_time: results[6][0][6].times,
 						title: "Edit Quotes" 
 					});
 				} else {
@@ -315,25 +331,25 @@ exports.PostEditQuote = function(req, res, next) {
 					{ 
 						loggedin: req.session.loggedin,
 						message: 3,
-						quote1: results[2][0][0].quote,
-						author1: results[2][0][0].author,
-						quote2: results[2][0][1].quote,
-						author2: results[2][0][1].author,
-						quote3: results[2][0][2].quote,
-						author3: results[2][0][2].author,
-						quote4: results[2][0][3].quote,
-						author4: results[2][0][3].author,
-						quote5: results[2][0][4].quote,
-						author5: results[2][0][4].author,
-						quote6: results[2][0][5].quote,
-						author6: results[2][0][5].author,
-						monday_time: results[1][0][0].times,
-						tuesday_time: results[1][0][1].times,
-						wednesday_time: results[1][0][2].times,
-						thursday_time: results[1][0][3].times,
-						friday_time: results[1][0][4].times,
-						saturday_time: results[1][0][5].times,
-						sunday_time: results[1][0][6].times,
+						quote1: results[7][0][0].quote,
+						author1: results[7][0][0].author,
+						quote2: results[7][0][1].quote,
+						author2: results[7][0][1].author,
+						quote3: results[7][0][2].quote,
+						author3: results[7][0][2].author,
+						quote4: results[7][0][3].quote,
+						author4: results[7][0][3].author,
+						quote5: results[7][0][4].quote,
+						author5: results[7][0][4].author,
+						quote6: results[7][0][5].quote,
+						author6: results[7][0][5].author,
+						monday_time: results[6][0][0].times,
+						tuesday_time: results[6][0][1].times,
+						wednesday_time: results[6][0][2].times,
+						thursday_time: results[6][0][3].times,
+						friday_time: results[6][0][4].times,
+						saturday_time: results[6][0][5].times,
+						sunday_time: results[6][0][6].times,
 						title: "Home" 
 					});
 				}			
@@ -344,7 +360,25 @@ exports.PostEditTime = function(req, res, next) {
   db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT id, author, title, content, DATE_FORMAT(date, "%a %b, %d %Y") AS "date" FROM blog_posts', cb) 
+					db.query('Update availability SET times = '+connection.escape(req.body.monday_time)+' WHERE id = 1', cb) 
+				},
+				function(cb) { 
+					db.query('Update availability SET times = '+connection.escape(req.body.tuesday_time)+' WHERE id = 2', cb) 
+				},
+				function(cb) { 
+					db.query('Update availability SET times = '+connection.escape(req.body.wednesday_time)+' WHERE id = 3', cb) 
+				},
+				function(cb) { 
+					db.query('Update availability SET times = '+connection.escape(req.body.thursday_time)+' WHERE id = 4', cb) 
+				},
+				function(cb) { 
+					db.query('Update availability SET times = '+connection.escape(req.body.friday_time)+' WHERE id = 5', cb) 
+				},
+				function(cb) { 
+					db.query('Update availability SET times = '+connection.escape(req.body.saturday_time)+' WHERE id = 6', cb) 
+				},
+				function(cb) { 
+					db.query('Update availability SET times = '+connection.escape(req.body.sunday_time)+' WHERE id = 7', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -359,13 +393,13 @@ exports.PostEditTime = function(req, res, next) {
 					{ 
 						loggedin: req.session.loggedin,
 						message: 1,
-						monday_time: results[1][0][0].times,
-						tuesday_time: results[1][0][1].times,
-						wednesday_time: results[1][0][2].times,
-						thursday_time: results[1][0][3].times,
-						friday_time: results[1][0][4].times,
-						saturday_time: results[1][0][5].times,
-						sunday_time: results[1][0][6].times,
+						monday_time: results[7][0][0].times,
+						tuesday_time: results[7][0][1].times,
+						wednesday_time: results[7][0][2].times,
+						thursday_time: results[7][0][3].times,
+						friday_time: results[7][0][4].times,
+						saturday_time: results[7][0][5].times,
+						sunday_time: results[7][0][6].times,
 						title: "Edit Times" 
 					});
 				} else {
@@ -373,25 +407,25 @@ exports.PostEditTime = function(req, res, next) {
 					{ 
 						loggedin: req.session.loggedin,
 						message: 3,
-						quote1: results[2][0][0].quote,
-						author1: results[2][0][0].author,
-						quote2: results[2][0][1].quote,
-						author2: results[2][0][1].author,
-						quote3: results[2][0][2].quote,
-						author3: results[2][0][2].author,
-						quote4: results[2][0][3].quote,
-						author4: results[2][0][3].author,
-						quote5: results[2][0][4].quote,
-						author5: results[2][0][4].author,
-						quote6: results[2][0][5].quote,
-						author6: results[2][0][5].author,
-						monday_time: results[1][0][0].times,
-						tuesday_time: results[1][0][1].times,
-						wednesday_time: results[1][0][2].times,
-						thursday_time: results[1][0][3].times,
-						friday_time: results[1][0][4].times,
-						saturday_time: results[1][0][5].times,
-						sunday_time: results[1][0][6].times,
+						quote1: results[8][0][0].quote,
+						author1: results[8][0][0].author,
+						quote2: results[8][0][1].quote,
+						author2: results[8][0][1].author,
+						quote3: results[8][0][2].quote,
+						author3: results[8][0][2].author,
+						quote4: results[8][0][3].quote,
+						author4: results[8][0][3].author,
+						quote5: results[8][0][4].quote,
+						author5: results[8][0][4].author,
+						quote6: results[8][0][5].quote,
+						author6: results[8][0][5].author,
+						monday_time: results[7][0][0].times,
+						tuesday_time: results[7][0][1].times,
+						wednesday_time: results[7][0][2].times,
+						thursday_time: results[7][0][3].times,
+						friday_time: results[7][0][4].times,
+						saturday_time: results[7][0][5].times,
+						sunday_time: results[7][0][6].times,
 						title: "Home" 
 					});
 				}			
@@ -402,7 +436,7 @@ exports.PostBlog = function(req, res, next) {
     db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT id, author, title, content, DATE_FORMAT(date, "%a %b, %d %Y") AS "date" FROM blog_posts', cb) 
+					db.query('INSERT INTO blog_posts (author, title, content, date) VALUES ('+connection.escape(req.body.author)+', '+connection.escape(req.body.title)+', '+connection.escape(req.body.blogcontent)+', NOW())', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -578,7 +612,7 @@ exports.PostAdmin = function(req, res, next) {
     db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT id, author, title, content, DATE_FORMAT(date, "%a %b, %d %Y") AS "date" FROM blog_posts', cb) 
+					db.query('UPDATE users SET user_name = '+connection.escape(req.body.username)+', passwords = '+connection.escape(req.body.password)+' WHERE id = 1', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -589,7 +623,7 @@ exports.PostAdmin = function(req, res, next) {
 			],
 			function(error, results, fields) {
 				if (req.session.loggedin) {
-					res.render('Admin Panel/add_blog', 
+					res.render('Admin Panel/edit_admin', 
 					{ 
 						loggedin: req.session.loggedin,
 						message: 1,
@@ -636,7 +670,7 @@ exports.PostCerts = function(req, res, next) {
   db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT id, author, title, content, DATE_FORMAT(date, "%a %b, %d %Y") AS "date" FROM blog_posts', cb) 
+					db.query('INSERT INTO certifications (qualification_name, type) VALUES ('+connection.escape(req.body.qualification_name)+', '+connection.escape(req.body.type)+')', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)

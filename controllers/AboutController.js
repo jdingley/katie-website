@@ -43,7 +43,6 @@ exports.RenderAboutPage = function(req, res, next) {
     ],
       function (error, results, fields) {
         if (error) throw error;
-				console.log(results[0][0][0]);
 				var session = req.session;
         res.render('About/about_page',
         { 
