@@ -24,15 +24,17 @@
         </div>
         <div id="qualifications" style= "font-size: 15px; line-height: 40px; float:right; color:white; background-color: rgb(113, 206, 252); padding: 20px; border: solid transparent 2px; border-radius: 25px; width: 40%">
           <p style="color:#52028E;"><b>QUALIFICATIONS:</b></p>
-          <b>License Professional Counselor:</b> 37PC00675800 (NJ) <br>
-          <b>National Certified Counselor:</b> 347096 <br>
+						<% for (var i = 0; i < qualifications.length; i++) { %>
+							<b><%= qualifications[i].qualification_name %></b> <br>
+						<% } %>
           <p style="color:#52028E;"><b>TRAININGS/CERTIFICATIONS:</b></p>
-          <b>Certified Nurtured Heart Trainer</b> <br>
-          <b>Certification in TF-CBT (Trauma-Focused Cognitive Behavioral Therapy)</b>
-          <p style="color:#52028E;"><b>MEMBERSHIPS/AFFILIATIONS</p></b></p>
-          <b>ACA (American Counseling Association)</b><br>
-          <b>NJCA (New Jersey Counseling Association)</b> <br>
-          <b>NADD (An Association for persons with developmental and mental health needs)</b>
+						<% for (var i = 0; i < certifications.length; i++) { %>
+							<b><%= certifications[i].qualification_name %></b> <br>
+						<% } %>    
+					<p style="color:#52028E;"><b>MEMBERSHIPS/AFFILIATIONS</p></b></p>
+						<% for (var i = 0; i < memberships.length; i++) { %>
+							<b><%= memberships[i].qualification_name %></b> <br>
+						<% } %>   
         </div>
       </div>
       <div class="col-md-12">

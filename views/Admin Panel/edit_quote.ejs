@@ -1,0 +1,89 @@
+<% layout("/Layouts/default") -%>
+<style>
+	textarea {
+  width: 300px;
+  height: 100px;
+	}
+</style>
+<body>
+  <div class="row">
+		<% if (message == 1) { %>
+			<div class="alert alert-success col-sm-12">You successfully edited one or more the quotes.</div>
+		<% } %>
+    <div class="col-md-8 col-md-offset-2">
+			<form id="update_quote" class="form-horizontal" role="form" method="post" action="/AdminPanel/PostQuote"> 
+				<div style="margin-bottom: 25px" class="input-group">
+					<h2>Quote 1</h2>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<textarea id = "quote1" name="quote1"><%= quote1 %></textarea>
+					</div>
+					<br>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<h2>Author 1</h2>
+						<input id="author1" type="text" class="form-control" name="author1" value=<%= author1 %>>
+					</div>
+				</div>
+				<div style="margin-bottom: 25px" class="input-group">
+					<h2>Quote 2</h2>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<textarea id = "quote2" name="quote2"><%= quote2 %></textarea>
+					</div>
+					<br>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<h2>Author 2</h2>
+						<input id="author2" type="text" class="form-control" name="author2" value=<%= author2 %>>
+					</div>
+				</div>
+				<div style="margin-bottom: 25px" class="input-group">
+					<h2>Quote 3</h2>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<textarea id = "quote3" name="quote3"><%= quote3 %></textarea>
+					</div>
+					<br>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<h2>Author 3</h2>
+						<input id="author3" type="text" class="form-control" name="author3" value=<%= author3 %>>
+					</div>
+				</div>
+				<div style="margin-bottom: 25px" class="input-group">
+					<h2>Quote 4</h2>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<textarea id = "quote4" name="quote4"><%= quote4 %></textarea>
+					</div>
+					<br>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<h2>Author 4</h2>
+						<input id="author4" type="text" class="form-control" name="author4" value=<%= author4 %>>
+					</div>
+				</div>
+				<div style="margin-bottom: 25px" class="input-group">
+					<h2>Quote 5</h2>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<textarea id = "quote5" name="quote5"><%= quote5 %></textarea>
+					</div>
+					<br>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<h2>Author 5</h2>
+						<input id="author5" type="text" class="form-control" name="author5" value=<%= author5 %>>
+					</div>
+				</div>
+				<div style="margin-bottom: 25px" class="input-group">
+					<h2>Quote 6</h2>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<textarea id = "quote1" name="quote6"><%= quote6 %></textarea>
+					</div>
+					<br>
+					<div style="margin-bottom: 10px" class=""form-control">
+						<h2>Author 6</h2>
+						<input id="author6" type="text" class="form-control" name="author6" value=<%= author6 %>>
+					</div>
+				</div>
+				<div style="margin-top:10px" class="form-group">
+					<div class="col-sm-12 controls">
+						<button id="btn-login" type="submit" class="btn btn-success">Submit Quote Updates</button>
+					</div>
+				</div>
+			</form>
+    </div>
+  </div>
+</body>

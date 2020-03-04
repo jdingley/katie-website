@@ -8,6 +8,15 @@
   }
 </style>
 <body>
+	<% if (message == 1) { %>
+		 <div class="alert alert-danger col-sm-12">Sorry, the username or password you provided, were not correct. Please try again.</div>
+	<% } %>
+	<% if (message == 2) { %>
+		 <div class="alert alert-success col-sm-12">You successfully logged into the Admin Account.</div>
+	<% } %>
+	<% if (message == 3) { %>
+		 <div class="alert alert-danger col-sm-12">You do not have access to that page. Please log in and try again.</div>
+	<% } %>
   <div class="row">
     <div class="col-md-12">
       <div class="col-md-8 col-md-offset-2" style="text-align:center">
@@ -22,26 +31,24 @@
           </p>
           <br>
       </div>
-      <div class="col-md-12" id="quotes" style="text-align: center; height: 300px; padding: 100px;background-color:rgb(113, 206, 252); color: white;">
-        <div id="content-1" class="col-md-12" style="margin-bottom:150px;"> 
-          <h1>"Out of suffering have emerged the strongest souls;<br>the most massive charaters are seared with scars" <br>-Khalil Gibran</h1>   
+      <div class="col-md-12" id="quotes" style="text-align: center; height: auto; padding: 100px;background-color:rgb(113, 206, 252); color: white;">
+        <div id="content-1" class="col-md-12"> 
+          <h1><%= quote1 %><br>-<%= author1 %></h1>   
         </div>
-        <div id="content-2" class="col-md-12" style="margin-bottom:30px;"> 
-            <h1>"Emotional pain is not something that should be hidden away and never spoken about. <br>There is truth in your pain, there is growth in your pain, 
-            but only if it's first brought out into the open" <br>-Steven Aitchison</h1>   
+        <div id="content-2" class="col-md-12"> 
+          <h1><%= quote2 %><br>-<%= author2 %></h1>    
         </div>
-        <div id="content-3" class="col-md-12" style="margin-bottom:30px;"> 
-            <h1>"Mental Illness is NOT a personal failure" <br>-Anonymous</h1>   
+        <div id="content-3" class="col-md-12"> 
+          <h1><%= quote3 %><br>-<%= author3 %></h1>    
         </div>
-        <div id="content-4" class="col-md-12" style="margin-bottom:30px;"> 
-            <h1>"Invest in your mental health" <br>-Anonymous</h1>   
+        <div id="content-4" class="col-md-12"> 
+          <h1><%= quote3 %><br>-<%= author3 %></h1>   
         </div>
-        <div id="content-5" class="col-md-12" style="margin-bottom:30px;"> 
-            <h1>"No matter how hard the past, you can always begin again" <br>-Buddha</h1>   
+        <div id="content-5" class="col-md-12"> 
+          <h1><%= quote4 %><br>-<%= author4 %></h1>
         </div>
-        <div id="content-6" class="col-md-12" style="margin-bottom:30px;"> 
-            <h1>"There is no timestamp on trauma. There isn't a formula that you can insert yourself into to get away from horror to heald. <br>
-            Be patient. Take up space. Let your journey be the balm." <br>-Dawn Serra</h1>   
+        <div id="content-6" class="col-md-12"> 
+          <h1><%= quote5 %><br>-<%= author5 %></h1>    
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
@@ -75,15 +82,6 @@
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
-        <div class="col-md-5 col-md-offset-1" >
-          <br>
-          <h2 style="color: purple">Articles</h2>
-          <br>
-          <br>
-          <button type="button" id="go_to_article_page" class="btn btn-info">Read More</button>
-          <br>
-          <br>
-        </div>
         <div class="col-md-5" >
           <br>
           <h2 style="color: purple; margin-right: 40px">Blog</h2>
@@ -114,15 +112,13 @@
     $('#go_to_about_page').click(function() {
         window.location.href = "/About";
     })
-    $('#go_to_article_page').click(function() {
-        window.location.href = "/Blog";
-    })
     $('#go_to_blog_page').click(function() {
         window.location.href = "/Blog";
     })
     $('#go_to_services_page').click(function() {
-        window.location.href = "/Service";
+        window.location.href = "/Services";
     })
+    
   });
 
 </script>
