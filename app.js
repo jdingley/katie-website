@@ -24,14 +24,14 @@ const mysqlConfig = {
 	"host": "localhost",
 	"user": "root",
 	"password": "Fallingdown#21",
-  "database": "WebsiteDB",
+	"database": "WebsiteDB",
 };
 
 var db = mysql.createConnection ({
 	"host": "localhost",
 	"user": "root",
 	"password": "Fallingdown#21",
-  "database": "WebsiteDB",
+	"database": "WebsiteDB",
 });
 
 const helmet = require("helmet");

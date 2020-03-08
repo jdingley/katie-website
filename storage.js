@@ -52,7 +52,7 @@ class Storage {
 					},
 					"To": [
 						{
-							"Email": "j.dingley.123@gmail.com",
+							"Email": "kadiatutarawalie2000@gmail.com",
 							"Name": "Kadiatu"
 						}
 					],
@@ -93,7 +93,7 @@ class Storage {
 					},
 					"To": [
 						{
-							"Email": "j.dingley.123@gmail.com",
+							"Email": "kadiatutarawalie2000@gmail.com",
 							"Name": "Kadiatu"
 						}
 					],
@@ -138,7 +138,7 @@ class Storage {
 					},
 					"To": [
 						{
-							"Email": "j.dingley.123@gmail.com",
+							"Email": "kadiatutarawalie2000@gmail.com",
 							"Name": "Kadiatu"
 						}
 					],

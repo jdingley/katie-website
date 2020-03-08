@@ -8,6 +8,7 @@
   "dependencies": {
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
+    "bcrypt": "^1.0.3",
     "boostrap": "^2.0.0",
     "buttercms": "^1.2.1",
     "cookie-parser": "~1.4.4",
@@ -21,8 +22,8 @@
     "mysql": "^2.17.1",
     "nginx": "0.0.0",
     "nodemon": "^1.19.1",
-    "req-flash": "0.0.3",
-    "pm2": "^3.5.1"
+    "pm2": "^3.5.1",
+    "req-flash": "0.0.3"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",

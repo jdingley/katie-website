@@ -1,13 +1,26 @@
 <% layout("/Layouts/default") -%>
+<style>
+	pre {
+		overflow-x: auto;
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -pre-wrap;
+		white-space: -o-pre-wrap;
+		word-wrap: break-word;
+	}
+	h1{
+		font-size: 70px
+	}
+</style>
 <body>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h1><%= results.title %></b></h1>
       <br>
 				<article>
-						<h4><b>By:</b> <%= results.author %> <b>Posted:</b> <%= results.date %></h4>
+						<pre><h2><b>By:</b> <%= results.author %> <b>Posted:</b> <%= results.date %></h2></pre>
 						<br>
-						<h5><%= results.content %></h5>
+						<pre><h2><%= results.content %></h2></pre>
 				</article>
     </div>
   </div>

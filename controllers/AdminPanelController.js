@@ -10,6 +10,7 @@ const mysql = require('mysql');
 var async = require("async");
 const querystring = require('querystring');
 var session = require("express-session");
+const bcrypt = require('bcrypt');
 
 var db = mysql.createPool ({
 	"host": "localhost",
@@ -494,7 +495,7 @@ exports.EditAdmin = function(req, res, next) {
     db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT * FROM users WHERE id = 1', cb) 
+					db.query('SELECT * FROM admin_users WHERE id = 1', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -609,16 +610,20 @@ exports.AddCerts = function(req, res, next) {
 	});
 }
 exports.PostAdmin = function(req, res, next) {
+	bcrypt.hash(req.body.password, 10, function(err, hash) {
     db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('UPDATE users SET user_name = '+connection.escape(req.body.username)+', passwords = '+connection.escape(req.body.password)+' WHERE id = 1', cb) 
+					db.query('UPDATE admin_users SET user_name = '+connection.escape(req.body.username)+', passwords = '+connection.escape(hash)+' WHERE id = 1', cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
 				},    
 				function(cb) { 
 					db.query('SELECT * FROM quotes', cb) 
+				},
+				function(cb) { 
+					db.query('SELECT * FROM admin_users WHERE id = 1', cb) 
 				},
 			],
 			function(error, results, fields) {
@@ -627,6 +632,7 @@ exports.PostAdmin = function(req, res, next) {
 					{ 
 						loggedin: req.session.loggedin,
 						message: 1,
+						username: results[3][0][0].user_name,
 						monday_time: results[1][0][0].times,
 						tuesday_time: results[1][0][1].times,
 						wednesday_time: results[1][0][2].times,
@@ -664,6 +670,7 @@ exports.PostAdmin = function(req, res, next) {
 					});
 				}			
 			});
+		});
 	});
 }
 exports.PostCerts = function(req, res, next) {
@@ -731,7 +738,7 @@ exports.Auth = function(req, res, next) {
 		db.getConnection (function (err, connection) {
 			async.parallel ([
 				function(cb) { 
-					db.query('SELECT * FROM users WHERE user_name = ? AND passwords = ?', [username, password], cb) 
+					db.query('SELECT * FROM admin_users WHERE user_name = ?', [username], cb) 
 				},
 				function(cb) {
 					db.query('SELECT * FROM availability', cb)
@@ -741,7 +748,8 @@ exports.Auth = function(req, res, next) {
 				},
 			],
 			function(error, results, fields) {
-				if (results[0][0].length > 0) {
+				var hash = bcrypt.compareSync(''+password+'', ''+results[0][0][0].passwords+'');
+				if (hash) {
 					req.session.loggedin = true;
 					req.session.username = username;
 					res.render('Home/home_page', 

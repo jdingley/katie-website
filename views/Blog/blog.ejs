@@ -1,4 +1,12 @@
 <% layout("/Layouts/default") -%>
+<style>
+	h1{
+		font-size: 60px
+	}
+	h2{
+		font-size: 50px
+	}
+</style>
 <body>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -10,7 +18,8 @@
                 <br>
                 <h3><b>By:</b> <%= results[0][i].author %> <b>Posted:</b> <%= results[0][i].date %></h3>
                 <br>
-                <h4><%= results[0][i].content.slice(0, 100)%></h4>
+                <h4><%= results[0][i].content.slice(0, 400)%></h4>
+								<br><br>
             </article>
         <% } %>
     </div>
